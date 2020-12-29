@@ -1,6 +1,7 @@
 // Khai bao modules can su dung
 const express = require('express');
 const logger = require('morgan');
+const env = require('dotenv')
 
 const dbConnect = require('./config/db-connect');
 const { validateUserData } = require('./middleware/user.mdw');
@@ -8,6 +9,9 @@ const { GetAllUser, FindUser, AddUser, UpdateUserById, DeleteUserById } = requir
 
 // Khoi tao bien server bang express
 const server = express();
+
+// Doc va load bien moi truong
+env.config();
 
 // Tao ket noi toi Database
 dbConnect.connect();
